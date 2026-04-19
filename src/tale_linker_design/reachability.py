@@ -58,6 +58,40 @@ class ReachabilityMap:
         dists = np.linalg.norm(self.samples - center[None, :], axis=1)
         return float(np.mean(dists <= radius))
 
+    def bootstrap_p_reach(self, target_pos: NDArray, tolerance_A: float = 12.0, n_bootstrap: int = 1000, ci: float = 0.95) -> dict:
+        """
+        Bootstrap confidence interval on P(reach).
+        
+        Returns:
+            dict with keys: 'estimate', 'ci_lower', 'ci_upper', 'std'
+        """
+        n_samples = len(self.samples)
+        if n_samples == 0:
+            return {
+                "estimate": 0.0, "ci_lower": 0.0, "ci_upper": 0.0,
+                "std": 0.0, "n_bootstrap": n_bootstrap, "ci_level": ci
+            }
+        
+        bootstrap_estimates = []
+        dists = np.linalg.norm(self.samples - target_pos[None, :], axis=1)
+        
+        for _ in range(n_bootstrap):
+            idx = np.random.choice(n_samples, size=n_samples, replace=True)
+            p_reach_boot = np.mean(dists[idx] <= tolerance_A)
+            bootstrap_estimates.append(p_reach_boot)
+        
+        bootstrap_estimates = np.array(bootstrap_estimates)
+        alpha = 1 - ci
+        
+        return {
+            "estimate": self.probability_within(target_pos, tolerance_A),
+            "ci_lower": float(np.percentile(bootstrap_estimates, 100 * alpha / 2)),
+            "ci_upper": float(np.percentile(bootstrap_estimates, 100 * (1 - alpha / 2))),
+            "std": float(bootstrap_estimates.std()),
+            "n_bootstrap": n_bootstrap,
+            "ci_level": ci
+        }
+
     def nearest_sample_distance(self, target: NDArray) -> float:
         """Minimum Euclidean distance from any attachment point to target (Å)."""
         if len(self.samples) == 0:
@@ -209,7 +243,8 @@ def genesis_target_reachability(
     for (cls, n), rm in reachability_maps.items():
         for (strand, bp), entry in scissile_table.items():
             target_coords = entry["coords"]
-            p_reach = rm.probability_within(target_coords, tolerance_A)
+            boot_res = rm.bootstrap_p_reach(target_coords, tolerance_A)
+            p_reach = boot_res["estimate"]
             nearest = rm.nearest_sample_distance(target_coords)
 
             # Entropy estimate: H ≈ 3/2 * log(2π e σ²) for each axis, summed
@@ -228,6 +263,9 @@ def genesis_target_reachability(
                 "nearest_A": round(nearest, 2),
                 "entropy_bits": round(entropy, 3),
                 "survival_fraction": round(rm.survival_fraction, 3),
+                "ci_lower_pct": round(boot_res["ci_lower"] * 100, 2),
+                "ci_upper_pct": round(boot_res["ci_upper"] * 100, 2),
+                "std_pct": round(boot_res["std"] * 100, 2),
             })
 
     return pd.DataFrame(rows)

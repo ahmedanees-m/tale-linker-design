@@ -1,0 +1,12 @@
+paper,year,class,n,bp_offset,observed_efficiency,predicted_p_reach,notes
+Miller 2011,2011,N,63,4,0.85,0.011735249292401481,NΔ152/C+63; ~25% human CCR5/NTF3 editing
+Cermak 2011,2011,N,63,4,0.8,0.012651336991551259,C+63 variant
+Cermak 2011,2011,N,40,4,0.55,0.022194524621709087,C+40 variant; narrower spacer tolerance
+Beurdeley 2013,2013,N,59,3,0.75,0.01128919556293126,I-TevI native linker; >23 bp optimal
+Yanik 2013,2013,F,12,2,0.7,0.0973408056569,PvuII fusion; 34000x preference
+Sun 2014,2014,F,95,4,0.65,0.005575050011478044,scTALEN 95-aa flexible bridge
+Maeder 2013,2013,F,4,1,0.55,0.445994599459946,TET1 4-aa GGGS; 21-30% demethylation
+Kim 2013,2013,N,63,4,0.6,0.012153685311029797,Library scale; C+63 scaffold
+Guilinger 2014,2014,H,16,4,0.3,0.4271330153683095,fCas9 XTEN; strict spacer
+Chavez 2015,2015,F,20,8,0.7,0.024014574362371647,VPR; flexible; activation
+Yeo 2018,2018,F,20,8,0.65,0.025652044560510397,KRAB-MeCP2; flexible; repression
