@@ -11,6 +11,8 @@ Runtime on Intel i3 / 8 GB RAM: ~5–15 minutes (analytical models, no PyRosetta
 import argparse
 import json
 import time
+import hashlib
+from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -54,6 +56,8 @@ def parse_args():
                    help="MC samples per reachability map (default 50 000)")
     p.add_argument("--primary-structure", default="3V6T",
                    help="PDB ID to use as primary reference (default 3V6T)")
+    p.add_argument("--save-ensembles", action="store_true",
+                   help="Save the 3D numpy arrays to data/linker_library/ for Zenodo deposition")
     return p.parse_args()
 
 
@@ -128,6 +132,14 @@ def main():
     reach_maps = compute_all_reachability_maps(tale, library, n_samples=args.n_samples, rng=rng)
     print(f"  Computed {len(reach_maps)} reachability maps")
 
+    if args.save_ensembles:
+        library_dir = DATA_DIR / "linker_library"
+        library_dir.mkdir(parents=True, exist_ok=True)
+        for (cls, n), rm in reach_maps.items():
+            if hasattr(rm, "samples"):
+                np.save(library_dir / f"{cls.value}_{n}.npy", rm.samples)
+        print(f"  Saved 3D coordinate ensembles to: data/linker_library/*.npy")
+
     # Report summary statistics
     reach_df = genesis_target_reachability(reach_maps, scissile_table, tolerance_A=5.0)
     reach_df.to_csv(DATA_DIR / "reachability_maps" / "genesis_target_reachability.csv", index=False)
@@ -184,6 +196,29 @@ def main():
 
     figure6_decision_flowchart(FIG_DIR / "fig6_flowchart.png")
     print("  Fig 6: decision flowchart — done")
+
+    # ── Task 7.1: Provenance manifest ─────────────────────────────────
+    print("\n[Step 10] Generating provenance manifest...")
+    manifest = {
+        "seed": 42,
+        "n_samples": args.n_samples,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "primary_structure": args.primary_structure,
+        "md5_hashes": {}
+    }
+    
+    for f in list(DATA_DIR.rglob("*")) + list(FIG_DIR.rglob("*")):
+        if f.is_file() and f.name != "provenance_manifest.json":
+            hasher = hashlib.md5()
+            with open(f, "rb") as fh:
+                for chunk in iter(lambda: fh.read(4096), b""):
+                    hasher.update(chunk)
+            key = f.relative_to(BASE_DIR).as_posix()
+            manifest["md5_hashes"][key] = hasher.hexdigest()
+
+    manifest_path = DATA_DIR / "provenance_manifest.json"
+    manifest_path.write_text(json.dumps(manifest, indent=2))
+    print("  Saved: data/provenance_manifest.json")
 
     elapsed = time.time() - t0
     print(f"\n{'='*65}")
