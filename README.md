@@ -6,7 +6,7 @@
 
 **Geometric constraints on catalytic domain fusion to TALE arrays: a design framework for programmable genome engineering.**
 
-This package provides the first systematic computational framework for designing peptide linkers that connect Transcription Activator-Like Effector (TALE) DNA-binding arrays to catalytic effector domains. It maps the three-dimensional "reachability envelope" of TALE C-terminal fusions as a function of linker length, composition, and flexibility—enabling rational design of TALE-nuclease, TALE-recombinase, and TALE-editor architectures.
+This package provides the first systematic computational framework for designing peptide linkers that connect Transcription Activator-Like Effector (TALE) DNA-binding arrays to catalytic effector domains. It maps the three-dimensional "reachability envelope" of TALE C-terminal fusions as a function of linker length, composition, and flexibility-enabling rational design of TALE-nuclease, TALE-recombinase, and TALE-editor architectures.
 
 ---
 
@@ -14,7 +14,7 @@ This package provides the first systematic computational framework for designing
 
 Programmable genome engineering relies on fusing DNA-binding modules to catalytic effectors. While TALE arrays provide programmable recognition of any 20-bp sequence, the geometric constraints of these fusions have remained empirically determined—linker lengths are chosen by trial and error rather than physical principles.
 
-This framework replaces guesswork with quantitative prediction. By modeling linkers as worm-like chains (flexible), helical rods (rigid), or composite sequences, we compute the probability that a catalytic domain placed at the TALE C-terminus can reach a target DNA position. The method enables:
+This framework replaces guesswork with quantitative prediction. By modelling linkers as worm-like chains (flexible), helical rods (rigid), or composite sequences, we compute the probability that a catalytic domain placed at the TALE C-terminus can reach a target DNA position. The method enables:
 
 - **Rational linker design** for new TALE-fusion architectures (nucleases, integrases, base editors)
 - **Conditional assembly engineering** (ensuring catalytic domains are positioned only at target-bound configurations)
