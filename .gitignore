@@ -1,0 +1,36 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Large data directories (deposited on Zenodo)
+data/pdb_raw/
+data/pdb_cleaned/
+data/pdb_annotations/
+data/linker_library/
+data/reachability_maps/
+
+# Manuscript and figures (separate from software repository)
+manuscript/
+figures/
+
+# LaTeX artifacts (if any sneak in)
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.pdf
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Environment/provenance logs
+.env
+*.log
+_test_results.txt
+_analysis_run.txt
+_local_file_manifest.txt

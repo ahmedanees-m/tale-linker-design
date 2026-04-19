@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tale-linker-design"
+version = "0.1.0"
+description = "Geometric framework for TALE-fusion catalytic domain linker design"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Anees Ahmed", email = "ahmedaneesm@gmail.com"}
+]
+keywords = [
+    "TALE", "TALEN", "linker design", "protein engineering",
+    "genome editing", "worm-like chain", "computational biology", "GENESIS"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pandas>=2.0",
+    "matplotlib>=3.7",
+    "seaborn>=0.12",
+    "biopython>=1.80",
+    "scikit-learn>=1.2",
+    "statsmodels>=0.14",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "jupyter",
+    "jupyterlab",
+    "plotly>=5.0",
+    "kaleido",
+]
+
+[project.urls]
+Homepage = "https://github.com/anees-ahmed/tale-linker-design"
+Repository = "https://github.com/anees-ahmed/tale-linker-design"
+"Bug Tracker" = "https://github.com/anees-ahmed/tale-linker-design/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"

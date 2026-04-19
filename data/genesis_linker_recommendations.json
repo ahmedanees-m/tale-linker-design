@@ -1,0 +1,60 @@
+{
+  "genesis_version": "v3.2.1",
+  "paper": "C5",
+  "target_scissile_phosphate": {
+    "strand": "top",
+    "bp_offset": 4,
+    "approach_tolerance_A": 5.0
+  },
+  "candidate_linkers": [
+    {
+      "rank": 1,
+      "name": "Design R (H-class, 15 res)",
+      "linker_class": "H",
+      "n_residues": 15,
+      "sequence_motif": "(EAAAK)n",
+      "recommended_sequence": "EAAAKEAAAKEAAAK",
+      "p_reach_primary_pct": 9.908512947743835,
+      "nearest_distance_A": 0.3948061176231603,
+      "entropic_cost_kcal_mol": 8.7,
+      "orientational_concentration_kappa": 15.0,
+      "notes": ""
+    },
+    {
+      "rank": 2,
+      "name": "Design G (F-class, 8 res)",
+      "linker_class": "F",
+      "n_residues": 8,
+      "sequence_motif": "(GGS)n",
+      "recommended_sequence": "GGSGGSGG",
+      "p_reach_primary_pct": 0.9649243151781223,
+      "nearest_distance_A": 1.0532240894504026,
+      "entropic_cost_kcal_mol": 0.0,
+      "orientational_concentration_kappa": 0.0,
+      "notes": ""
+    },
+    {
+      "rank": 3,
+      "name": "Design B (M-class, 8 res)",
+      "linker_class": "M",
+      "n_residues": 8,
+      "sequence_motif": "(GGS)-(EAAAK)-(GGS)",
+      "recommended_sequence": "GGEAAAGG",
+      "p_reach_primary_pct": 3.418585693906664,
+      "nearest_distance_A": 0.2937136201403995,
+      "entropic_cost_kcal_mol": 2.1,
+      "orientational_concentration_kappa": 4.0,
+      "notes": ""
+    }
+  ],
+  "frozen_for_C1_C2": {
+    "recommended_linker_rank": 1,
+    "description": "Design R (H-class, 15 res)",
+    "sequence": "EAAAKEAAAKEAAAK",
+    "constraints": {
+      "max_length_residues": 15,
+      "class": "H",
+      "p_reach_pct_at_bp4_top": 9.908512947743835
+    }
+  }
+}
