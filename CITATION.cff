@@ -9,7 +9,7 @@ title: "tale_linker_design: Geometric constraints on catalytic domain fusion to 
 version: 0.1.0
 doi: "TO-BE-FILLED-AFTER-ZENODO-UPLOAD"
 date-released: "2026-04-19"
-url: "https://github.com/anees-ahmed/tale-linker-design"
+url: "https://github.com/ahmedanees-m/tale-linker-design"
 license: MIT
 preferred-citation:
   type: article
@@ -21,4 +21,4 @@ preferred-citation:
   journal: "bioRxiv"
   year: 2026
   doi: "TO-BE-FILLED-AFTER-BIORXIV-SUBMISSION"
-  url: "https://github.com/anees-ahmed/tale-linker-design"
+  url: "https://github.com/ahmedanees-m/tale-linker-design"
