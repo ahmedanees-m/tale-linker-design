@@ -72,7 +72,7 @@ P-8:  P(reach) = 4.0%   # Proline-rich
 ## Key Features
 
 - **Five linker classes**: Flexible (GGS), Helical (EAAAK), Mixed, Natural (TALEN variants), and Proline-rich
-- **45 pre-computed ensembles**: 5–30 residue lengths, 50,000 conformations each
+- **45 pre-computed ensembles**: 5-30 residue lengths, 50,000 conformations each
 - **Canonical coordinate frame**: DNA-centric reference system for comparing across TALE structures
 - **Inverse design**: Specify target position → get optimal linker sequence
 - **Validation**: Benchmarked against published TALEN-FokI, TALE-PvuII, and cTALEN geometries
@@ -93,6 +93,6 @@ Large data files (PDB structures, linker ensembles, reachability maps) are depos
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) file.
+MIT License - see [LICENSE](LICENSE) file.
 
 Copyright (c) 2026 Anees Ahmed Mahaboob Ali
