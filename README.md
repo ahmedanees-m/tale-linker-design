@@ -1,6 +1,6 @@
 # tale_linker_design
 
-[![CI](https://github.com/anees-ahmed/tale-linker-design/actions/workflows/ci.yml/badge.svg)](https://github.com/anees-ahmed/tale-linker-design/actions)
+[![CI](https://github.com/ahmedanees-m/tale-linker-design/actions/workflows/ci.yml/badge.svg)](https://github.com/ahmedanees-m/tale-linker-design/actions)
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -28,7 +28,7 @@ The framework was developed to support [GENESIS](link-to-paper-when-live), a pro
 
 ```bash
 # Clone repository
-git clone https://github.com/anees-ahmed/tale-linker-design.git
+git clone https://github.com/ahmedanees-m/tale-linker-design.git
 cd tale-linker-design
 
 # Create environment
