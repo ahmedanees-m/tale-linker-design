@@ -10,8 +10,6 @@ This package provides the first systematic computational framework for designing
 
 ---
 
-## Why This Matters
-
 Programmable genome engineering relies on fusing DNA-binding modules to catalytic effectors. While TALE arrays provide programmable recognition of any 20-bp sequence, the geometric constraints of these fusions have remained empirically determined—linker lengths are chosen by trial and error rather than physical principles.
 
 This framework replaces guesswork with quantitative prediction. By modelling linkers as worm-like chains (flexible), helical rods (rigid), or composite sequences, we compute the probability that a catalytic domain placed at the TALE C-terminus can reach a target DNA position. The method enables:
@@ -20,7 +18,7 @@ This framework replaces guesswork with quantitative prediction. By modelling lin
 - **Conditional assembly engineering** (ensuring catalytic domains are positioned only at target-bound configurations)
 - **Avoidance of steric clashes** between TALE superhelices and effector domains
 
-The framework was developed to support [GENESIS](link-to-paper-when-live), a program to design de novo DNA-modifying enzymes, but applies broadly to any TALE-fusion system.
+The framework was developed to support [GENESIS](link-to-paper-when-live), a program for designing de novo DNA-modifying enzymes, but it applies broadly to any TALE-fusion system.
 
 ---
 
