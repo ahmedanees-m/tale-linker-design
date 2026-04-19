@@ -47,9 +47,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/anees-ahmed/tale-linker-design"
-Repository = "https://github.com/anees-ahmed/tale-linker-design"
-"Bug Tracker" = "https://github.com/anees-ahmed/tale-linker-design/issues"
+Homepage = "https://github.com/ahmedanees-m/tale-linker-design"
+Repository = "https://github.com/ahmedanees-m/tale-linker-design"
+"Bug Tracker" = "https://github.com/ahmedanees-m/tale-linker-design/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

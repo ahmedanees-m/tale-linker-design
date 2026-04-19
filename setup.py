@@ -8,7 +8,7 @@ setup(
     long_description_content_type="text/markdown",
     author="Anees Ahmed",
     author_email="ahmedaneesm@gmail.com",
-    url="https://github.com/anees-ahmed/tale-linker-design",
+    url="https://github.com/ahmedanees-m/tale-linker-design",
     license="MIT",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
