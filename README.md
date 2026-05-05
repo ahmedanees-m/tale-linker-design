@@ -10,7 +10,7 @@ This package provides the first systematic computational framework for designing
 
 ---
 
-Programmable genome engineering relies on fusing DNA-binding modules to catalytic effectors. While TALE arrays provide programmable recognition of any 20-bp sequence, the geometric constraints of these fusions have remained empirically determined—linker lengths are chosen by trial and error rather than physical principles.
+Programmable genome engineering relies on fusing DNA-binding modules to catalytic effectors. While TALE arrays provide programmable recognition of any 20-bp sequence, the geometric constraints of these fusions have remained empirically determined-linker lengths are chosen by trial and error rather than physical principles.
 
 This framework replaces guesswork with quantitative prediction. By modelling linkers as worm-like chains (flexible), helical rods (rigid), or composite sequences, we compute the probability that a catalytic domain placed at the TALE C-terminus can reach a target DNA position. The method enables:
 
